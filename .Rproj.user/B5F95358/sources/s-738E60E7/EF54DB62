@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1562295002225.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "EF54DB62",
+    "lastKnownWriteTime" : 1562294540,
+    "last_content_update" : 1562295002225,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C1D88E19",
+        "caption" : "atacantes",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=atacantes&cache_key=C1D88E19",
+        "displayedObservations" : "2152",
+        "environment" : "",
+        "expression" : "atacantes",
+        "object" : "atacantes",
+        "preview" : "0",
+        "totalObservations" : "2152",
+        "variables" : "89"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

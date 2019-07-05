@@ -1,0 +1,94 @@
+---
+title: "Análise de dados FIFA 19"
+author: "João Pedro Travassos Costa e Tiago Lima"
+date: "04/07/2019"
+output: html_document
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(openintro)
+library(tidyverse)
+library(ggbeeswarm)
+library(modelr)
+library(broom)
+theme_set(theme_bw())
+```
+
+
+```{r}
+dados <- read.csv(file="data.csv", header=TRUE, sep=",")
+```
+
+Separando os atacantes do jogo
+
+```{r}
+atacantes = dados %>% filter(Position == "ST")
+```
+
+Qual seriam os atributos que melhor descrevem um atacante com Overall alto?
+
+Primeiro vamos analisar a Finalização
+
+```{r}
+atacantes %>% 
+  ggplot(aes(x = Overall, y = Finishing)) +
+   geom_point(alpha = 0.4) + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+  Podemos observar que quanto maior o Finishing de um atacante maior seu Overrall. O comportamento linear está bem representado na imagem
+  
+Analisando agora a velocidade de Sprint do jogador
+
+```{r}
+atacantes %>% 
+  ggplot(aes(x = Overall, y = SprintSpeed)) +
+   geom_point(alpha = 0.4) + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+Pelo visto não existe um comportamento tão linear com relaão a velocidade de sprint do jogador e o seu Overall
+
+Analisando agora o controle de bola
+```{r}
+atacantes %>% 
+  ggplot(aes(x = Overall, y = BallControl)) +
+   geom_point(alpha = 0.4) + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+Quanto maior o controle de bola do jogador maior seu overall caracterizando um comportamento linear.
+
+Por último vamos analisar as reações do jogador
+```{r}
+atacantes %>% 
+  ggplot(aes(x = Overall, y = Reactions)) +
+   geom_point(alpha = 0.4) + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+Quanto maior a reação do jogador maior seu overall caracterizando um comportamento linear.
+
+Montando o modelo então...
+
+```{r}
+modelo = lm(Overall ~ Finishing + SprintSpeed + Reactions + BallControl, 
+   data = atacantes)
+tidy(modelo)
+glance(modelo)
+```
+Modelo obtido com a regressão linear múltipla de Finishing, SprintSpeed, Reaction e Reactions na tentativa de explicar a variável Overall nos atacantes:
+
+Overall = 3.88 + 0.39 * Finishing + 0.05 * SprintSpeed + 0.20 * Reactions + 0.28 * BallControl
+
+R² = 0.94 , aproximadamente.
+
+Nessa equação,a variável Finishing é a que, separadamente, melhor explica os dados, já que, seu coeficiente de multiplicação obtido (0.39) foi o maior entre os demais, logo, ela irá ter uma maior influência no crescimento do Overall de um atacante.
+
+E para o R², obtivemos o valor de 0.94, o que nos diz que, as variáveis combinadas numa regressão múltipla irão explicar cerca de 94% da variável Overall para os atacantes, o que nos da uma boa taxa de precisão. Em outras palavaras podemos dizer que um atacante pode ter 94% do seu Overall explicdo a partir do seu Finishing, SprintSpeed, Reactions e BallControl. 
+
+```{r}
+atacantes %>% 
+  filter(Overall > 80)  %>% 
+  ggplot(aes(x = reorder(Overall,Overall), y = Name)) +
+   geom_point(alpha = 0.4)
+```
+

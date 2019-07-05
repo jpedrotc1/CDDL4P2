@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1562291819998.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2986478572",
+    "id" : "EC5104C3",
+    "lastKnownWriteTime" : 1562297443,
+    "last_content_update" : 1562297443825,
+    "path" : "~/Análise FIFA 19/analise.Rmd",
+    "project_path" : "analise.Rmd",
+    "properties" : {
+        "cursorPosition" : "91,26",
+        "scrollLine" : "77",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

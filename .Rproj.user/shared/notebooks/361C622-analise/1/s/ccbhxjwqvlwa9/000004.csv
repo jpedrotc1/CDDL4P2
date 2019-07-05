@@ -1,0 +1,3 @@
+"0","modelo = lm(Overall ~ Finishing + SprintSpeed + Reactions + BallControl, "
+"0","   data = atacantes)"
+"0","tidy(modelo)"

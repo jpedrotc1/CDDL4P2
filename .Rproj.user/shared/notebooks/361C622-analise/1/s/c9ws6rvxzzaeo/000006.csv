@@ -1,0 +1,6 @@
+"0","library(openintro)"
+"0","library(tidyverse)"
+"0","library(ggbeeswarm)"
+"0","library(modelr)"
+"0","library(broom)"
+"0","theme_set(theme_bw())"

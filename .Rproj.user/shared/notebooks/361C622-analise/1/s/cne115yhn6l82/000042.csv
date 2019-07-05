@@ -1,0 +1,4 @@
+"0","atacantes %>% "
+"0","  filter(Overall > 80)  %>% "
+"0","  ggplot(aes(x = reorder(Overall,Overall), y = Name)) +"
+"0","   geom_point(alpha = 0.4)"

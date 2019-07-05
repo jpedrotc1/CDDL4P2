@@ -1,0 +1,4 @@
+"0","atacantes %>% "
+"0","  ggplot(aes(x = Overall, y = SprintSpeed)) +"
+"0","   geom_point(alpha = 0.4) + "
+"0","  geom_smooth(method = ""lm"", se = FALSE)"
